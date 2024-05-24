@@ -4,11 +4,11 @@ plugins {
 }
 
 android {
-    namespace = "com.example.githubsearchapp"
+    namespace = "com.example.data"
     compileSdk = 34
 
     defaultConfig {
-        applicationId = "com.example.githubsearchapp"
+        applicationId = "com.example.data"
         minSdk = 24
         targetSdk = 34
         versionCode = 1
@@ -33,15 +33,10 @@ android {
     kotlinOptions {
         jvmTarget = "1.8"
     }
-    dynamicFeatures += setOf(":domain")
 }
 
 dependencies {
 
-    implementation(libs.androidx.core.ktx)
-    implementation(libs.androidx.appcompat)
-    implementation(libs.material)
-    testImplementation(libs.junit)
-    androidTestImplementation(libs.androidx.junit)
-    androidTestImplementation(libs.androidx.espresso.core)
+    implementation(libs.retrofit)
+    implementation(libs.converter.moshi)
 }

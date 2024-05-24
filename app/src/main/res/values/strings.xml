@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">GithubSearchApp</string>
+    <string name="title_domain">domule</string>
 </resources>
