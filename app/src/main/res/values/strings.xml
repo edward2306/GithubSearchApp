@@ -1,4 +1,7 @@
 <resources>
     <string name="app_name">GithubSearchApp</string>
     <string name="title_domain">domule</string>
+    <string name="hint_search">Input Username</string>
+    <string name="username_not_found">User Not Found</string>
+    <string name="text_username">Username</string>
 </resources>

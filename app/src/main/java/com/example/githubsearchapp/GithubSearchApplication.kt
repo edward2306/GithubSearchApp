@@ -1,6 +1,7 @@
 package com.example.githubsearchapp
 
 import android.app.Application
+import com.example.githubsearchapp.di.githubUserModule
 import com.example.githubsearchapp.di.mainModule
 import org.koin.android.ext.koin.androidContext
 import org.koin.android.ext.koin.androidLogger
@@ -13,7 +14,10 @@ class GithubSearchApplication : Application() {
         startKoin {
             androidLogger()
             androidContext(this@GithubSearchApplication)
-            modules(mainModule)
+            modules(
+                mainModule,
+                githubUserModule
+            )
         }
     }
 }

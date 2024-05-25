@@ -11,6 +11,12 @@
       <entry key="domain">
         <State />
       </entry>
+      <entry key="domains">
+        <State />
+      </entry>
+      <entry key="mylibrary">
+        <State />
+      </entry>
     </value>
   </component>
 </project>

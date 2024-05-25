@@ -1,6 +1,8 @@
 plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
+    id("kotlin-kapt")
+    id("androidx.navigation.safeargs.kotlin")
 }
 
 android {
@@ -13,6 +15,8 @@ android {
         targetSdk = 34
         versionCode = 1
         versionName = "1.0"
+
+        multiDexEnabled = true
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -27,21 +31,25 @@ android {
         }
     }
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_1_8
-        targetCompatibility = JavaVersion.VERSION_1_8
+        sourceCompatibility = JavaVersion.VERSION_17
+        targetCompatibility = JavaVersion.VERSION_17
+    }
+    buildFeatures {
+        viewBinding = true
+        dataBinding = true
     }
     kotlinOptions {
-        jvmTarget = "1.8"
+        jvmTarget = "17"
     }
-    dynamicFeatures += setOf(":domain")
 }
 
 dependencies {
 
-    implementation(project(":data"))
-    implementation(project(":domain"))
+    implementation(project(":datas"))
+    implementation(project(":domains"))
 
     implementation(libs.androidx.core.ktx)
+    implementation(libs.kotlin.stdlib.jdk8)
 
     // app compat
     implementation(libs.androidx.appcompat)
@@ -60,15 +68,17 @@ dependencies {
 
     // coroutine
     implementation(libs.kotlinx.coroutines.core)
+    kapt(libs.kotlinx.metadata.jvm)
     implementation(libs.kotlinx.coroutines.android)
 
     // glide
     implementation(libs.glide)
+//    kapt(libs.compiler)
 
     // room
     implementation(libs.androidx.room.ktx)
     implementation(libs.androidx.room.runtime)
-    implementation(libs.androidx.room.compiler)
+    kapt(libs.androidx.room.compiler)
 
     // retrofit
     implementation(libs.retrofit)
@@ -84,5 +94,7 @@ dependencies {
     implementation(libs.androidx.lifecycle.viewmodel.ktx)
     implementation(libs.androidx.lifecycle.common.java8)
     implementation(libs.androidx.lifecycle.viewmodel.savedstate)
+
+    implementation(libs.kotlin.stdlib)
 
 }
