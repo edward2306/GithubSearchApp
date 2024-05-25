@@ -1,6 +1,7 @@
 plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
+    id("kotlin-parcelize")
 }
 
 android {
@@ -9,7 +10,11 @@ android {
 }
 
 dependencies {
-    implementation(project(":data"))
+    implementation(project(":domain"))
+
+    implementation(libs.androidx.core.ktx)
+
+    implementation(libs.androidx.appcompat)
 
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
@@ -27,4 +32,10 @@ dependencies {
 
     // koin
     implementation(libs.koin.android)
+
+    // room
+    implementation(libs.androidx.room.ktx)
+    implementation(libs.androidx.room.runtime)
+    implementation(libs.androidx.room.compiler)
+
 }
